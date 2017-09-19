@@ -18,7 +18,12 @@ def p_1d():
             if c in perc:
                 perc[str(c)] += 1
 
-        print(perc)
+        total = sum(perc.values())
+
+        print("{0:.2f}".format((perc['A'] * 100) / total),
+              "{0:.2f}".format((perc['T'] * 100) / total),
+              "{0:.2f}".format((perc['C'] * 100) / total),
+              "{0:.2f}".format((perc['G'] * 100) / total))
 
 
 if __name__=='__main__':

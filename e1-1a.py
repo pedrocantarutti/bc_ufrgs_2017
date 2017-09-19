@@ -1,13 +1,11 @@
 # 1 a)
 def p_1a():
     with open('sequence.fasta', 'r') as f:
-        lines = f.readlines()
+        seq = f.read().strip()
+        seq = seq.replace('\n', '')
+        seq = seq.replace('N', '')
 
-        for line in lines:
-            if '\n' in line:
-                line = line.replace('\n', '')
-            if 'ACCTGGTGTTCCCA' in line:
-                print('LINHA:', line)
+        print(seq.find('ACCTGGTGTTCCCA'))
 
 
 
