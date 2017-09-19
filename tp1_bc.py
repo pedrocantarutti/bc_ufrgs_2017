@@ -10,12 +10,22 @@ def p_1d():
 
 
 # 1 c)
+# Resposta: 1050079
 def p_1c():
     with open('sequence.fasta', 'r') as f:
         seq = f.read().strip()
 
-        if '\n' in seq:
-            seq = seq.replace('\n', '')
+        seq = seq.replace('\n', '')
+
+        chunks, chunk_size = len(seq), 37
+        a = [seq[i:i + int(chunk_size)] for i in range(0, chunks, int(chunk_size))]
+
+        lst = set()
+        for s in a:
+            if len(s) == 37 and 'N' not in s:
+                lst.add(s)
+        print(len(lst))
+
 
 
 # 1 b)
@@ -24,17 +34,16 @@ def p_1b():
     with open('sequence.fasta', 'r') as f:
         seq = f.read().strip()
 
-        if '\n' in seq:
-            seq = seq.replace('\n', '')
+        seq = seq.replace('\n', '')
 
         chunks, chunk_size = len(seq), 9
         a = [seq[i:i + int(chunk_size)] for i in range(0, chunks, int(chunk_size))]
 
-        pal = []
+        pal = set()
         for s in a:
             if s == s[::-1]:
-                if s not in pal and 'N' not in s:
-                    pal.append(s)
+                if 'N' not in s:
+                    pal.add(s)
 
         print(len(pal))
 
@@ -54,3 +63,4 @@ def p_1a():
 
 if __name__=='__main__':
     p_1b()
+    p_1c()
