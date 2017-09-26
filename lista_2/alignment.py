@@ -54,7 +54,7 @@ def finalize(align1, align2):
     
     identity = float(identity) / len(align1) * 100
     
-    print('Identity =', "%3.3f" % identity, 'percent')
+    print('Identidade =', "%3.3f" % identity, 'percent')
     print('Score =', score)
     print(align1)
     print(symbol)

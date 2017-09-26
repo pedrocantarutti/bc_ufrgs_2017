@@ -1,0 +1,7 @@
+#
+# Como rodar o programa
+#
+
+rodar:
+
+    ./needle { sequences/nome_da_primeira_sequencia.txt } { sequences/nome_da_segunda_sequencia.txt }
