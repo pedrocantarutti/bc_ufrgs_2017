@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+import sys
+import alignment
+
+
+def run(f1_seq, f2_seq):
+    seq1 = ''
+    seq2 = ''
+    with open(f1_seq, 'r') as f1:
+        seq1 = f1.readline()
+        seq1 = seq1.strip()
+
+    with open(f2_seq, 'r') as f2:
+        seq2 = f2.readline()
+        seq2 = seq2.strip()
+
+    alignment.needle(seq1, seq2)
+
+
+if __name__=='__main__':
+    f1_seq = sys.argv[1]
+    f2_seq = sys.argv[2]
+    run(f1_seq, f2_seq)
