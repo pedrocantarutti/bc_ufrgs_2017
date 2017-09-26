@@ -2,6 +2,7 @@
 # I've ported to Python3 and made some improvments to the base algorithmn
 
 
+# Globals
 MATCH_AWARD      = 5
 MISMATCH_PENALTY = -3
 GAP_PENALTY      = -4
@@ -13,8 +14,7 @@ def zeros(shape):
     retval = []
     for x in range(shape[0]):
         retval.append([])
-        for y in range(shape[1]):
-            retval[-1].append(0)
+        [retval[-1].append(0) for y in range(shape[1])]
     return retval
 
 def match_score(alpha, beta):
@@ -68,10 +68,12 @@ def needle(seq1, seq2):
     score = zeros((m+1, n+1))      # the DP table
    
     # Calculate DP table
-    for i in range(0, m + 1):
+    for i in range(m + 1):
         score[i][0] = GAP_PENALTY * i
-    for j in range(0, n + 1):
+
+    for j in range(n + 1):
         score[0][j] = GAP_PENALTY * j
+
     for i in range(1, m + 1):
         for j in range(1, n + 1):
             match = score[i - 1][j - 1] + match_score(seq1[i-1], seq2[j-1])
@@ -79,7 +81,7 @@ def needle(seq1, seq2):
             insert = score[i][j - 1] + GAP_PENALTY
             score[i][j] = max(match, delete, insert)
 
-    # Traceback and compute the alignment 
+    # Traceback and compute the alignment
     align1, align2 = '', ''
     i,j = m,n # start from the bottom right cell
     while i > 0 and j > 0: # end toching the top or the left edge
