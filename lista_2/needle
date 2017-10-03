@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-import alignment
+import e2
 
 
 def run(f1_seq, f2_seq):
@@ -15,7 +15,7 @@ def run(f1_seq, f2_seq):
         seq2 = f2.readline()
         seq2 = seq2.strip()
 
-    alignment.needle(seq1, seq2)
+    e2.needle(seq1, seq2)
 
 
 if __name__=='__main__':
