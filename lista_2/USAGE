@@ -2,6 +2,10 @@
 # Como rodar o programa
 #
 
-rodar:
+rodar (no Linux):
 
     ./needle { sequences/nome_da_primeira_sequencia.txt } { sequences/nome_da_segunda_sequencia.txt }
+
+rodar (no Windows, python deve estar no PATH):
+
+    python needle { sequences/nome_da_primeira_sequencia.txt } { sequences/nome_da_segunda_sequencia.txt }
